@@ -1,10 +1,18 @@
 from datetime import date
-
-import requests
-from bs4 import BeautifulSoup
 import re
-import json
+import os
 
+try:
+    import requests
+    from bs4 import BeautifulSoup
+    import json
+except Exception as e:
+    os.system("pip install bs4")
+    os.system("pip install requests")
+    import requests
+    from bs4 import BeautifulSoup
+    import json
+    
 
 f = open("drugs-{}.json".format(str(date.today())), "w+")
 f.write('{ "druges" : [')
